@@ -122,6 +122,7 @@ class _LoginPageState extends State<LoginPage> {
                             'Verificação de Estoque',
                             style: TextStyle(
                                 fontSize: 18,
+                                
                                 color: textDarkColor,
                             ),
                           ),
