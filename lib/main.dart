@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:verificacao_estoque_online/home_page.dart';
-
+import 'package:verificacao_estoque_online/login/login_page.dart';
 
 void main() {
-  runApp(const MaterialApp());
+  runApp(
+    MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: LoginPage(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -12,10 +16,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomePageScreen(),
-    );
+    return MaterialApp();
   }
 }
 
