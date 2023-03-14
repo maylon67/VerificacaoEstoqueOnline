@@ -118,7 +118,7 @@ class _LoginPageState extends State<LoginPage> {
                                 fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            'Gerencial',
+                            'Verificação de Estoque',
                             style: TextStyle(
                                 fontSize: 18,
                                 color: textDarkColor,
