@@ -38,7 +38,7 @@ class _CodigoEstoqueState extends State<CodigoEstoque> {
                     keyboardType: TextInputType.number,
                     focusNode: codigofocus,
                     decoration: InputDecoration(
-                        labelText: 'Código',
+                        labelText: 'Código',  
                         labelStyle:
                             TextStyle(color: Colors.black, fontSize: 14),
                         border: OutlineInputBorder(
