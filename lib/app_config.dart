@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-final String version = '1.0.1';
+final String version = '1.0.0';
 
 String messageNotConnection = "Falha na conexão, verifique sua rede e tente novamente mais tarde";
 

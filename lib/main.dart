@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:verificacao_estoque_online/home_page.dart';
 import 'package:verificacao_estoque_online/login/login_page.dart';
+import 'package:verificacao_estoque_online/ui/codigo_estoque.dart';
 
 void main() {
   runApp(
     MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: LoginPage(),
+    home: CodigoEstoque(),
   ));
 }
 

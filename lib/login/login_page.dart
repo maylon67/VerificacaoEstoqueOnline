@@ -226,7 +226,7 @@ class _LoginPageState extends State<LoginPage> {
                             children: [
                               Expanded(
                                   child: PrimaryButton(
-                                      text: 'Verificar Celular',
+                                      text: 'Login',
                                       onPressed: () {
                                         carregaHoraLogin();
                                         FocusScope.of(context).unfocus();
