@@ -6,6 +6,6 @@ class ConsultaProdutosModels {
 ConsultaProdutosModels(
       this.estadoProduto,
       this.localProduto,
-      this.nomeProduto
+      this.nomeProduto,
  );
 }

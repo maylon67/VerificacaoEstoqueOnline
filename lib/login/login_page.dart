@@ -262,9 +262,9 @@ class _LoginPageState extends State<LoginPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset('lib/assets/images/fhi.png', height: 30, width: 30,),
+                      Image.asset('lib/assets/images/bisoft.png', height: 42, width: 42,),
                       SizedBox(width: 10,),
-                      Text('Desenvolvido por FHI', style: TextStyle(color: markPrimaryColor, fontWeight: FontWeight.bold),)
+                      Text('Desenvolvido por Bisoft', style: TextStyle(color: markPrimaryColor, fontWeight: FontWeight.bold),)
                     ],
                   ) 
                 ),
