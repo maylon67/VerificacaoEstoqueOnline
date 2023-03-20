@@ -1,3 +1,6 @@
+import 'package:verificacao_estoque_online/app_config.dart';
+import 'package:verificacao_estoque_online/database/tables/table_users.dart';
+
 class UserModel{
 
   String email = '';
@@ -28,7 +31,7 @@ class UserModel{
       'Login: $isLogged'
       ' }';
 
-  /*MapSD toDB() => {
+  MapSD toDB() => {
     '$fieldUsersEmail': email,
     '$fieldUsersPassword': password,
     '$fieldUsersUser': userName,
@@ -36,9 +39,9 @@ class UserModel{
     '$fieldUsersPermissions': permissions,
     '$fieldUsersLastLogin': lastLogin,
     '$fieldUsersLogged': isLogged
-  };*/
+  };
 
-  /*UserModel.fromDatabase(MapSD map) {
+  UserModel.fromDatabase(MapSD map) {
     email = map[fieldUsersEmail];
     userName = map[fieldUsersUser];
     userId = map[fieldUsersUserid];
@@ -46,7 +49,7 @@ class UserModel{
     permissions = map[fieldUsersPermissions];
     lastLogin = map[fieldUsersLastLogin];
     isLogged = map[fieldUsersLogged];
-  }*/
+  }
 
   UserModel copyWith({
     String? email,

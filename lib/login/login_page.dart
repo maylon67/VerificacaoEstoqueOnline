@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:verificacao_estoque_online/app_config.dart';
+import 'package:verificacao_estoque_online/managers/app_manager.dart';
 import 'package:verificacao_estoque_online/home_page.dart';
 import 'package:verificacao_estoque_online/ui/_common/common_button.dart';
+import 'package:verificacao_estoque_online/ui/codigo_estoque.dart';
 import 'package:verificacao_estoque_online/user.dart';
 
 class LoginPage extends StatefulWidget {
@@ -30,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
 
   bool isObscure = true;
 
-  /*Future<void> login(
+  Future<void> login(
     String email,
     String senha,
   ) async {
@@ -42,14 +44,14 @@ class _LoginPageState extends State<LoginPage> {
         onSucess: () {
           Navigator.pushAndRemoveUntil(
               context,
-              MaterialPageRoute(builder: (_) => HomePageScreen()),
+              MaterialPageRoute(builder: (_) => CodigoEstoque()),
               (Route<dynamic> route) => false);
             print("Entrei Online");
         },
         onSucessLocal: () {
           Navigator.pushAndRemoveUntil(
               context,
-              MaterialPageRoute(builder: (_) => HomePageScreen()),
+              MaterialPageRoute(builder: (_) => CodigoEstoque()),
               (Route<dynamic> route) => false);
               print("Entrei Offline");
 
@@ -69,10 +71,10 @@ class _LoginPageState extends State<LoginPage> {
           );
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
         });
-  }*/
+  }
 
   /*Future<void> _loadUsers () async {
-    List<UserModel> u = await AppManager.allUsers();
+    List<UserModel> u = await AppManager();
 
     if(u.isNotEmpty){
       u.forEach((element) { 
@@ -230,9 +232,9 @@ class _LoginPageState extends State<LoginPage> {
                                       onPressed: () {
                                         carregaHoraLogin();
                                         FocusScope.of(context).unfocus();
-                                       // login(emailController.text.trim().toLowerCase(),
-                                       //     passwordController.text);
-                                      //  AppManager().validLogin = false;
+                                        login(emailController.text.trim().toLowerCase(),
+                                            passwordController.text);
+                                        AppManager().validLogin = false;
                                       })),
                             ],
                           ),
@@ -264,7 +266,7 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       Image.asset('lib/assets/images/bisoft.png', height: 42, width: 42,),
                       SizedBox(width: 10,),
-                      Text('Desenvolvido por Bisoft', style: TextStyle(color: markPrimaryColor, fontWeight: FontWeight.bold),)
+                      Text('Desenvolvido por Bisoft', style: TextStyle(color: blackText, fontWeight: FontWeight.bold),)
                     ],
                   ) 
                 ),

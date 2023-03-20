@@ -68,7 +68,7 @@ class _CodigoEstoqueState extends State<CodigoEstoque> {
                         // login(emailController.text.trim().toLowerCase(),
                         //     passwordController.text);
                         //  AppManager().validLogin = false;
-                      }),
+                       }),
                 ),
               )
             ],
