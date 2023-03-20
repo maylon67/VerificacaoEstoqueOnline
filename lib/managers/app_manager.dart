@@ -10,6 +10,8 @@ class AppManager extends ChangeNotifier {
 bool validLogin = true;
 bool loading = false;
 
+static DateTime? time;
+
   Future<dynamic> signIn({
     required String url,
     required String email,
@@ -28,9 +30,16 @@ bool loading = false;
 
         MapSD result = await WsController.executeDb(query: "/auth/login", body: body, duration: Duration(seconds: 15));
         print(result);
+
+        if(result['login']){
+          var timeLogin = DateTime.now().add(Duration(hours: 2, minutes: 59));
+          time = timeLogin;
+
+          onSucess();
         return;
       }
 
        // static Future<List<UserModel>> allUsers() async => await _db.selectAllUsers();
 
+}
 }
