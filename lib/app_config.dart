@@ -15,7 +15,7 @@ final Color redColor = Colors.red[700]!;
 final Color textDarkColor = Colors.grey[800]!;
 final Color colorCard = Colors.grey[350]!;
 final Color inactiveColor = Color(0xFFE0DDDD);
-final Color blackText = Colors.black54;
+final Color blackText = Colors.black;
 
 
 ///Images Paths

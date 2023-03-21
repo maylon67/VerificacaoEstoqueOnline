@@ -70,5 +70,4 @@ class UserModel{
       isLogged: isLogged ?? this.isLogged,
     );
   }
-
 }
