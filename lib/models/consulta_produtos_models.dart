@@ -8,4 +8,7 @@ ConsultaProdutosModels(
       this.localProduto,
       this.nomeProduto,
  );
+  ConsultaProdutosModels.fromJson(Map<String,dynamic> json){
+  
+  }
 }

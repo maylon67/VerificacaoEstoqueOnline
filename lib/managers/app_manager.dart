@@ -28,7 +28,7 @@ static DateTime? time;
           'password': passwordToSHA256,
         });
 
-        MapSD result = await WsController.executeDb(query: "/auth/login", body: body, duration: Duration(seconds: 15));
+        MapSD result = await WsController.executePost(query: "/auth/login", body: body, duration: Duration(seconds: 15));
         print(result);
 
         if(result['login']){

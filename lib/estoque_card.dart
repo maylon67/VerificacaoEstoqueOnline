@@ -35,15 +35,15 @@ class ConsultaProdutoCard extends StatelessWidget {
                   1: FixedColumnWidth(90),
                   2: FixedColumnWidth(90),
                 },
-              //  children: [
-              //    createHeadLine(
-              //        "Data\nVencimento;Valor\nPrincipal;Valor\nJuros;Valor\nTotal"),
-              //    for (ConsultaProdutosModels i in produtos)
-              //      createTable(
-              //          "${i.dataVencimento};${i.valorPrincipal};${i.valorJuros};${i.totalValor}"),
-              //  ],
+                //  children: [
+                //    createHeadLine(
+                //        "Data\nVencimento;Valor\nPrincipal;Valor\nJuros;Valor\nTotal"),
+                //    for (ConsultaProdutosModels i in produtos)
+                //      createTable(
+                //          "${i.dataVencimento};${i.valorPrincipal};${i.valorJuros};${i.totalValor}"),
+                //  ],
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -88,7 +88,7 @@ class ConsultaProdutoCard extends StatelessWidget {
                 children: [
                   Container(
                     height: 55,
-                    padding: EdgeInsets.all(8),
+                    padding: EdgeInsets.all(8),  
                     alignment: Alignment.center,
                     child: Text(
                       contents,
