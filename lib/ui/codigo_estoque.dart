@@ -38,21 +38,24 @@ class _CodigoEstoqueState extends State<CodigoEstoque> {
                 child: Container(
                   height: 60,
                   width: 200,
-                  child: TextField( 
+                  child: TextField(
                     autocorrect: true,
                     maxLength: 10,
                     controller: controletextfield,
                     keyboardType: TextInputType.number,
                     focusNode: codigofocus,
-                    autofocus: true,
+                    autofocus: false,
                     decoration: InputDecoration(
                       focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: markPrimaryColor)),
+                          borderSide: BorderSide(
+                        color: markPrimaryColor,
+                      )
+                    ),
                       labelText: 'Código',
                       labelStyle: TextStyle(
                           color: markPrimaryColor,
                           fontSize: 23,
-                          backgroundColor: Colors.black,
+                          // backgroundColor: markPrimaryColor,
                           fontWeight: FontWeight.bold),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -62,7 +65,7 @@ class _CodigoEstoqueState extends State<CodigoEstoque> {
                 ),
               ),
               Container(
-                height: 61,
+                height: 60,
                 width: 160,
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 20),

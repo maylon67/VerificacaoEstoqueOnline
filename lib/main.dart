@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:verificacao_estoque_online/home_page.dart';
 import 'package:verificacao_estoque_online/login/login_page.dart';
 import 'package:verificacao_estoque_online/ui/codigo_estoque.dart';
