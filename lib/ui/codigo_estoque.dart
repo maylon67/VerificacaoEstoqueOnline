@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:verificacao_estoque_online/app_config.dart';
+import 'package:verificacao_estoque_online/services/ws_produtos.dart';
 import 'package:verificacao_estoque_online/ui/_common/common_button.dart';
 
 class CodigoEstoque extends StatefulWidget {
@@ -72,11 +73,7 @@ class _CodigoEstoqueState extends State<CodigoEstoque> {
                   child: PrimaryButton(
                       text: 'Buscar',
                       onPressed: () {
-                        // carregaHoraLogin();
-                        // FocusScope.of(context).unfocus();
-                        // login(emailController.text.trim().toLowerCase(),
-                        //     passwordController.text);
-                        //  AppManager().validLogin = false;
+                        WsProdutos().getProdutosFromWs(int.parse(controletextfield.text));
                       }),
                 ),
               ),

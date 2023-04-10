@@ -1,14 +1,25 @@
 class ConsultaProdutosModels {
-  String localProduto = '';
+  int idProduto = 0;
   String nomeProduto = '';
-  String estadoProduto = '';
+  String unidadeProduto = '';
+  int codigoEstoqueProduto = 0;
+  String nomeEstoqueProduto = '';
+  double quantidadeEstoqueProduto = 0.0;
   //construtor do modelo
 ConsultaProdutosModels(
-      this.estadoProduto,
-      this.localProduto,
+      this.codigoEstoqueProduto,
+      this.idProduto,
       this.nomeProduto,
+      this.nomeEstoqueProduto,
+      this.quantidadeEstoqueProduto,
+      this.unidadeProduto
  );
   ConsultaProdutosModels.fromJson(Map<String,dynamic> json){
-  
+  codigoEstoqueProduto = int.parse(json['codigo_estoque'].toString());
+  quantidadeEstoqueProduto = double.parse(['quantidade_estoque'].toString());
+  idProduto = int.parse(json['id_produto'].toString());
+  unidadeProduto = json['unidade_produto'];
+  nomeEstoqueProduto = json['nome_estoque'];
+  nomeProduto = json['nome_produto'];
   }
 }

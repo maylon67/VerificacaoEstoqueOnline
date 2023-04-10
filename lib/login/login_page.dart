@@ -13,7 +13,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  List<String> users=[];
+  List<String> users = [];
 
   final emailFocus = FocusNode();
   final passwordFocus = FocusNode();
@@ -46,14 +46,14 @@ class _LoginPageState extends State<LoginPage> {
               context,
               MaterialPageRoute(builder: (_) => CodigoEstoque()),
               (Route<dynamic> route) => false);
-            print("Entrei Online");
+          print("Entrei Online");
         },
         onSucessLocal: () {
           Navigator.pushAndRemoveUntil(
               context,
               MaterialPageRoute(builder: (_) => CodigoEstoque()),
               (Route<dynamic> route) => false);
-              print("Entrei Offline");
+          print("Entrei Offline");
 
           //Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (_) => HomePageScreen()),
           //(Route<dynamic> route) => false);
@@ -88,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
     super.initState();
     emailController.text = '';
     passwordController.text = '';
-   // _loadUsers();
+    // _loadUsers();
   }
 
   @override
@@ -109,9 +109,17 @@ class _LoginPageState extends State<LoginPage> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          SizedBox(height: 40,),
-                          Image.asset(companyLogoGreen, height: 70, width: 116,),
-                          SizedBox(height: 10,),
+                          SizedBox(
+                            height: 40,
+                          ),
+                          Image.asset(
+                            companyLogoGreen,
+                            height: 70,
+                            width: 116,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
                           Text(
                             'Granjas 4 Irmãos',
                             style: TextStyle(
@@ -122,15 +130,15 @@ class _LoginPageState extends State<LoginPage> {
                           Text(
                             'Verificação de Estoque',
                             style: TextStyle(
-                                fontSize: 18,
-                                color: textDarkColor,
+                              fontSize: 18,
+                              color: textDarkColor,
                             ),
                           ),
                           Text(
                             version,
                             style: TextStyle(
-                                fontSize: 12,
-                                color: textDarkColor,
+                              fontSize: 12,
+                              color: textDarkColor,
                             ),
                           ),
                           SizedBox(height: 60),
@@ -140,43 +148,46 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             elevation: 6,
                             child: TypeAheadField(
-                              suggestionsBoxDecoration: SuggestionsBoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
-                                color: Colors.white
-                              ),
+                              suggestionsBoxDecoration:
+                                  SuggestionsBoxDecoration(
+                                      borderRadius: BorderRadius.circular(15),
+                                      color: Colors.white),
                               textFieldConfiguration: TextFieldConfiguration(
                                 focusNode: emailFocus,
-                              controller: emailController,
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  fontFamily: primaryFont,
-                                  color: textDarkColor),
-                              decoration: InputDecoration(
-                                contentPadding: EdgeInsets.symmetric(vertical: 5),
-                                border: InputBorder.none,
-                                focusedBorder: InputBorder.none,
-                                enabledBorder: InputBorder.none,
-                                errorBorder: InputBorder.none,
-                                disabledBorder: InputBorder.none,
-                                prefixIcon: Icon(
-                                  Icons.mail,
-                                  color: markPrimaryColor,
+                                controller: emailController,
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    fontFamily: primaryFont,
+                                    color: textDarkColor),
+                                decoration: InputDecoration(
+                                  contentPadding:
+                                      EdgeInsets.symmetric(vertical: 5),
+                                  border: InputBorder.none,
+                                  focusedBorder: InputBorder.none,
+                                  enabledBorder: InputBorder.none,
+                                  errorBorder: InputBorder.none,
+                                  disabledBorder: InputBorder.none,
+                                  prefixIcon: Icon(
+                                    Icons.mail,
+                                    color: markPrimaryColor,
+                                  ),
+                                  labelText: 'Email',
+                                  labelStyle: TextStyle(
+                                      fontSize: 18, color: markPrimaryColor),
+                                  alignLabelWithHint: false,
                                 ),
-                                labelText: 'Email',
-                                labelStyle: TextStyle(
-                                    fontSize: 18, color: markPrimaryColor),
-                                alignLabelWithHint: false,
                               ),
-                              ),
-                              noItemsFoundBuilder: (context) => Container(height: 0, width: 0),
-                              loadingBuilder: (context) => Container(height: 0, width: 0),
-                              suggestionsCallback: (pattern) async { 
-                                if (pattern == "") return users;     
-                                return users.where((element) => element.contains(pattern));
+                              noItemsFoundBuilder: (context) =>
+                                  Container(height: 0, width: 0),
+                              loadingBuilder: (context) =>
+                                  Container(height: 0, width: 0),
+                              suggestionsCallback: (pattern) async {
+                                if (pattern == "") return users;
+                                return users.where(
+                                    (element) => element.contains(pattern));
                               },
-                              itemBuilder: (context, String suggestion) => ListTile(
-                                title: Text(suggestion)
-                              ),
+                              itemBuilder: (context, String suggestion) =>
+                                  ListTile(title: Text(suggestion)),
                               onSuggestionSelected: (String suggestion) {
                                 emailController.text = suggestion;
                               },
@@ -194,16 +205,18 @@ class _LoginPageState extends State<LoginPage> {
                               controller: passwordController,
                               style: TextStyle(
                                 fontSize: 18,
-                                fontFamily: primaryFont,
                                 color: textDarkColor,
+                                fontFamily: primaryFont,
                               ),
                               decoration: InputDecoration(
                                 errorStyle: TextStyle(),
-                                contentPadding: EdgeInsets.symmetric(vertical: 5),
+                                contentPadding:
+                                    EdgeInsets.symmetric(vertical: 5),
                                 border: InputBorder.none,
                                 focusedBorder: InputBorder.none,
                                 enabledBorder: InputBorder.none,
                                 errorBorder: InputBorder.none,
+                                fillColor: Colors.black,
                                 disabledBorder: InputBorder.none,
                                 prefixIcon: Icon(
                                   Icons.vpn_key,
@@ -214,12 +227,15 @@ class _LoginPageState extends State<LoginPage> {
                                     fontSize: 18, color: markPrimaryColor),
                                 alignLabelWithHint: false,
                                 suffixIcon: IconButton(
-                                onPressed: (){setState(() => isObscure = !isObscure);}, 
-                                icon: Icon(
-                                  isObscure ? Icons.visibility : Icons.visibility_off, 
-                                  color: markPrimaryColor,
-                                )
-                              ),
+                                    onPressed: () {
+                                      setState(() => isObscure = !isObscure);
+                                    },
+                                    icon: Icon(
+                                      isObscure
+                                          ? Icons.visibility
+                                          : Icons.visibility_off,
+                                      color: markPrimaryColor,
+                                    )),
                               ),
                             ),
                           ),
@@ -232,7 +248,10 @@ class _LoginPageState extends State<LoginPage> {
                                       onPressed: () {
                                         carregaHoraLogin();
                                         FocusScope.of(context).unfocus();
-                                        login(emailController.text.trim().toLowerCase(),
+                                        login(
+                                            emailController.text
+                                                .trim()
+                                                .toLowerCase(),
                                             passwordController.text);
                                         AppManager().validLogin = false;
                                       })),
@@ -257,19 +276,28 @@ class _LoginPageState extends State<LoginPage> {
                         else
                           return SizedBox();
                       }),
-                 Positioned(
-                  bottom: 30,
-                  left: 0,
-                  right: 0,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset('lib/assets/images/bisoft.png', height: 42, width: 42,),
-                      SizedBox(width: 10,),
-                      Text('Desenvolvido por Bisoft', style: TextStyle(color: blackText, fontWeight: FontWeight.bold),)
-                    ],
-                  ) 
-                ),
+                  Positioned(
+                      bottom: 30,
+                      left: 0,
+                      right: 0,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            'lib/assets/images/bisoft.png',
+                            height: 42,
+                            width: 42,
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            'Desenvolvido por Bisoft',
+                            style: TextStyle(
+                                color: blackText, fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      )),
                 ],
               )),
         ),
