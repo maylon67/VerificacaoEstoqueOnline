@@ -4,7 +4,7 @@ class ConsultaProdutosModels {
   String unidadeProduto = '';
   int codigoEstoqueProduto = 0;
   String nomeEstoqueProduto = '';
-  double quantidadeEstoqueProduto = 0.0;
+  num quantidadeEstoqueProduto = 0.0;
   //construtor do modelo
 ConsultaProdutosModels(
       this.codigoEstoqueProduto,

@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:verificacao_estoque_online/app_config.dart';
+import 'package:verificacao_estoque_online/estoque_card.dart';
+import 'package:verificacao_estoque_online/models/consulta_produtos_models.dart';
 import 'package:verificacao_estoque_online/services/ws_produtos.dart';
 import 'package:verificacao_estoque_online/ui/_common/common_button.dart';
 
@@ -13,6 +15,8 @@ class CodigoEstoque extends StatefulWidget {
 
 class _CodigoEstoqueState extends State<CodigoEstoque> {
   final codigofocus = FocusNode();
+  bool estavazio = true;
+  ConsultaProdutosModels? produtobuscado;
   TextEditingController controletextfield = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -32,51 +36,59 @@ class _CodigoEstoqueState extends State<CodigoEstoque> {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Row(
+          child: Column(
             children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 25),
-                child: Container(
-                  height: 60,
-                  width: 200,
-                  child: TextField(
-                    autocorrect: true,
-                    maxLength: 10,
-                    controller: controletextfield,
-                    keyboardType: TextInputType.number,
-                    focusNode: codigofocus,
-                    autofocus: false,
-                    decoration: InputDecoration(
-                      focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                        color: markPrimaryColor,
-                      )
-                    ),
-                      labelText: 'Código',
-                      labelStyle: TextStyle(
-                          color: markPrimaryColor,
-                          fontSize: 23,
-                          // backgroundColor: markPrimaryColor,
-                          fontWeight: FontWeight.bold),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
+              Row(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 25),
+                    child: Container(
+                      height: 60,
+                      width: 200,
+                      child: TextField(
+                        autocorrect: true,
+                        maxLength: 10,
+                        controller: controletextfield,
+                        keyboardType: TextInputType.number,
+                        focusNode: codigofocus,
+                        autofocus: false,
+                        decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                            color: markPrimaryColor,
+                          )),
+                          labelText: 'Código',
+                          labelStyle: TextStyle(
+                              color: markPrimaryColor,
+                              fontSize: 23,
+                              // backgroundColor: markPrimaryColor,
+                              fontWeight: FontWeight.bold),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                ),
+                  Container(
+                    height: 60,
+                    width: 160,
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 20),
+                      child: PrimaryButton(
+                          text: 'Buscar',
+                          onPressed: () async {
+                            produtobuscado = await WsProdutos().getProdutosFromWs(
+                                int.parse(controletextfield.text));
+                            estavazio = false;
+                            setState(() {
+                            });
+                          }),
+                    ),
+                  ),
+                ],
               ),
-              Container(
-                height: 60,
-                width: 160,
-                child: Padding(
-                  padding: const EdgeInsets.only(bottom: 20),
-                  child: PrimaryButton(
-                      text: 'Buscar',
-                      onPressed: () {
-                        WsProdutos().getProdutosFromWs(int.parse(controletextfield.text));
-                      }),
-                ),
-              ),
+              estavazio ? SizedBox() : ConsultaProdutoCard(produtobuscado!)
             ],
           ),
         ),

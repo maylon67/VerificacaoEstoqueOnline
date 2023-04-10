@@ -3,10 +3,10 @@ import 'package:verificacao_estoque_online/app_config.dart';
 import 'package:verificacao_estoque_online/models/consulta_produtos_models.dart';
 
 class ConsultaProdutoCard extends StatelessWidget {
-  ConsultaProdutoCard(this.produtos);
+  ConsultaProdutoCard(this.produtosModels);
 
-  List<ConsultaProdutosModels> produtos;
-
+  //List<ConsultaProdutosModels> produtos;
+ConsultaProdutosModels produtosModels;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -20,8 +20,8 @@ class ConsultaProdutoCard extends StatelessWidget {
         child: Column(
           children: [
             Text(
-              "PARCELAS CONTRATO",
-              style: TextStyle(
+              produtosModels.nomeEstoqueProduto,
+              style: TextStyle( 
                   color: markPrimaryColor,
                   fontWeight: FontWeight.bold,
                   fontSize: 18),
@@ -91,7 +91,7 @@ class ConsultaProdutoCard extends StatelessWidget {
                     padding: EdgeInsets.all(8),  
                     alignment: Alignment.center,
                     child: Text(
-                      contents,
+                      produtosModels.nomeEstoqueProduto,
                       style: TextStyle(color: textDarkColor),
                       textAlign: TextAlign.center,
                     ),
