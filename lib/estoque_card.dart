@@ -6,7 +6,7 @@ class ConsultaProdutoCard extends StatelessWidget {
   ConsultaProdutoCard(this.produtosModels);
 
   //List<ConsultaProdutosModels> produtos;
-ConsultaProdutosModels produtosModels;
+List<ConsultaProdutosModels> produtosModels = [];
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -20,7 +20,7 @@ ConsultaProdutosModels produtosModels;
         child: Column(
           children: [
             Text(
-              produtosModels.nomeEstoqueProduto,
+              '',
               style: TextStyle( 
                   color: markPrimaryColor,
                   fontWeight: FontWeight.bold,
@@ -91,7 +91,7 @@ ConsultaProdutosModels produtosModels;
                     padding: EdgeInsets.all(8),  
                     alignment: Alignment.center,
                     child: Text(
-                      produtosModels.nomeEstoqueProduto,
+                      '',
                       style: TextStyle(color: textDarkColor),
                       textAlign: TextAlign.center,
                     ),

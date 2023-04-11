@@ -16,7 +16,7 @@ class CodigoEstoque extends StatefulWidget {
 class _CodigoEstoqueState extends State<CodigoEstoque> {
   final codigofocus = FocusNode();
   bool estavazio = true;
-  ConsultaProdutosModels? produtobuscado;
+  List<ConsultaProdutosModels> produtobuscado = [];
   TextEditingController controletextfield = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -88,7 +88,7 @@ class _CodigoEstoqueState extends State<CodigoEstoque> {
                   ),
                 ],
               ),
-              estavazio ? SizedBox() : ConsultaProdutoCard(produtobuscado!)
+              estavazio ? SizedBox() : ConsultaProdutoCard(produtobuscado), 
             ],
           ),
         ),
