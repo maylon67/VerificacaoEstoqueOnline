@@ -3,10 +3,10 @@ import 'package:verificacao_estoque_online/app_config.dart';
 import 'package:verificacao_estoque_online/models/consulta_produtos_models.dart';
 
 class ConsultaProdutoCard extends StatelessWidget {
-  ConsultaProdutoCard(this.produtosModels);
+  ConsultaProdutoCard(this.produtos);
 
   //List<ConsultaProdutosModels> produtos;
-List<ConsultaProdutosModels> produtosModels = [];
+List<ConsultaProdutosModels> produtos = [];
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -35,13 +35,13 @@ List<ConsultaProdutosModels> produtosModels = [];
                   1: FixedColumnWidth(90),
                   2: FixedColumnWidth(90),
                 },
-                //  children: [
-                //    createHeadLine(
-                //        "Data\nVencimento;Valor\nPrincipal;Valor\nJuros;Valor\nTotal"),
-                //    for (ConsultaProdutosModels i in produtos)
-                //      createTable(
-                //          "${i.dataVencimento};${i.valorPrincipal};${i.valorJuros};${i.totalValor}"),
-                //  ],
+                  children: [
+                    createHeadLine(
+                        "Data\nVencimento;Valor\nPrincipal;Valor\nJuros;Valor\nTotal"),
+                    for (ConsultaProdutosModels i in produtos)
+                      createTable(
+                          "${i.codigoEstoqueProduto};${i.nomeEstoqueProduto};${i.idProduto};${i.unidadeProduto}"),
+                  ],
               ),
             ),
           ],

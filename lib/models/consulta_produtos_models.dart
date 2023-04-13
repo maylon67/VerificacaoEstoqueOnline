@@ -12,7 +12,7 @@ ConsultaProdutosModels(
       this.nomeProduto,
       this.nomeEstoqueProduto,
       this.quantidadeEstoqueProduto,
-      this.unidadeProduto
+      this.unidadeProduto,
  );
   ConsultaProdutosModels.fromJson(Map<String,dynamic> json){
   codigoEstoqueProduto = int.parse(json['codigo_estoque'].toString());

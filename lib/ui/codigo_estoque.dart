@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:verificacao_estoque_online/app_config.dart';
 import 'package:verificacao_estoque_online/estoque_card.dart';
 import 'package:verificacao_estoque_online/models/consulta_produtos_models.dart';
+import 'package:verificacao_estoque_online/services/ws_config.dart';
 import 'package:verificacao_estoque_online/services/ws_produtos.dart';
 import 'package:verificacao_estoque_online/ui/_common/common_button.dart';
 
@@ -14,10 +15,16 @@ class CodigoEstoque extends StatefulWidget {
 }
 
 class _CodigoEstoqueState extends State<CodigoEstoque> {
+  
   final codigofocus = FocusNode();
   bool estavazio = true;
-  List<ConsultaProdutosModels> produtobuscado = [];
+ late List<ConsultaProdutosModels> produtobuscado;
+ 
   TextEditingController controletextfield = TextEditingController();
+  loadData() async{
+    produtobuscado = await WsProdutos().getProdutosFromWs(int.parse(controletextfield.text));
+    produtobuscado.forEach((element) {print(element); });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,7 +54,7 @@ class _CodigoEstoqueState extends State<CodigoEstoque> {
                       width: 200,
                       child: TextField(
                         autocorrect: true,
-                        maxLength: 10,
+                        maxLength: 10, 
                         controller: controletextfield,
                         keyboardType: TextInputType.number,
                         focusNode: codigofocus,
