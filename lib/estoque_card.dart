@@ -20,7 +20,7 @@ List<ConsultaProdutosModels> produtos = [];
         child: Column(
           children: [
             Text(
-              '',
+              'CONSULTA PRODUTO',
               style: TextStyle( 
                   color: markPrimaryColor,
                   fontWeight: FontWeight.bold,
@@ -37,10 +37,10 @@ List<ConsultaProdutosModels> produtos = [];
                 },
                   children: [
                     createHeadLine(
-                        "Data\nVencimento;Valor\nPrincipal;Valor\nJuros;Valor\nTotal"),
+                        "Código\nEstoque;Nome\nEstoque;Quantidade\nEstoque;"),
                     for (ConsultaProdutosModels i in produtos)
                       createTable(
-                          "${i.codigoEstoqueProduto};${i.nomeEstoqueProduto};${i.idProduto};${i.unidadeProduto}"),
+                          "${i.codigoEstoqueProduto};${i.nomeEstoqueProduto};${i.quantidadeEstoqueProduto};"),
                   ],
               ),
             ),

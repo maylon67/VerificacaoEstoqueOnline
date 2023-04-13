@@ -16,7 +16,7 @@ ConsultaProdutosModels(
  );
   ConsultaProdutosModels.fromJson(Map<String,dynamic> json){
   codigoEstoqueProduto = int.parse(json['codigo_estoque'].toString());
-  quantidadeEstoqueProduto = double.parse(['quantidade_estoque'].toString());
+  quantidadeEstoqueProduto = json['quantidade_estoque'];
   idProduto = int.parse(json['id_produto'].toString());
   unidadeProduto = json['unidade_produto'];
   nomeEstoqueProduto = json['nome_estoque'];
