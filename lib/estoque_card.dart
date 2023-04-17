@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:verificacao_estoque_online/app_config.dart';
 import 'package:verificacao_estoque_online/models/consulta_produtos_models.dart';
+import 'package:verificacao_estoque_online/ui/codigo_estoque.dart';
 
 class ConsultaProdutoCard extends StatelessWidget {
   ConsultaProdutoCard(this.produtos);
@@ -38,7 +39,7 @@ List<ConsultaProdutosModels> produtos = [];
                   children: [
                     createHeadLine(
                         "Código\nEstoque;Nome\nEstoque;Quantidade\nEstoque;"),
-                    for (ConsultaProdutosModels i in produtos)
+                    for (ConsultaProdutosModels i in produtoBuscado)
                       createTable(
                           "${i.codigoEstoqueProduto};${i.nomeEstoqueProduto};${i.quantidadeEstoqueProduto};"),
                   ],

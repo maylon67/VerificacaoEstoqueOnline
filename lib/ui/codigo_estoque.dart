@@ -6,7 +6,7 @@ import 'package:verificacao_estoque_online/models/consulta_produtos_models.dart'
 import 'package:verificacao_estoque_online/services/ws_config.dart';
 import 'package:verificacao_estoque_online/services/ws_produtos.dart';
 import 'package:verificacao_estoque_online/ui/_common/common_button.dart';
-
+ List<ConsultaProdutosModels> produtoBuscado = [];
 class CodigoEstoque extends StatefulWidget {
   const CodigoEstoque({Key? key}) : super(key: key);
 
@@ -17,13 +17,12 @@ class CodigoEstoque extends StatefulWidget {
 class _CodigoEstoqueState extends State<CodigoEstoque> {
   
   final codigofocus = FocusNode();
-  bool estavazio = true;
- late List<ConsultaProdutosModels> produtobuscado;
+  bool estaVazio = true;
+ 
  
   TextEditingController controletextfield = TextEditingController();
   loadData() async{
-    produtobuscado = await WsProdutos().getProdutosFromWs(int.parse(controletextfield.text));
-    produtobuscado.forEach((element) {print(element); });
+    produtoBuscado = await WsProdutos().getProdutosFromWs(int.parse(controletextfield.text));
   }
   @override
   Widget build(BuildContext context) {
@@ -85,9 +84,10 @@ class _CodigoEstoqueState extends State<CodigoEstoque> {
                       child: PrimaryButton(
                           text: 'Buscar',
                           onPressed: () async {
-                            produtobuscado = await WsProdutos().getProdutosFromWs(
-                                int.parse(controletextfield.text));
-                            estavazio = false;
+                            // produtobuscado = await WsProdutos().getProdutosFromWs(
+                            //     int.parse(controletextfield.text));
+                                loadData();
+                            estaVazio = false;
                             setState(() {
                             });
                           }),
@@ -95,7 +95,7 @@ class _CodigoEstoqueState extends State<CodigoEstoque> {
                   ),
                 ],
               ),
-              estavazio ? SizedBox() : ConsultaProdutoCard(produtobuscado), 
+              estaVazio ? SizedBox() : ConsultaProdutoCard(produtoBuscado), 
             ],
           ),
         ),
