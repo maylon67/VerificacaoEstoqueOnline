@@ -1,4 +1,8 @@
+import 'package:intl/intl.dart';
+
 class ConsultaProdutosModels {
+  var f = NumberFormat('##,###,##0', "pt-br");
+  
   int idProduto = 0;
   String nomeProduto = '';
   String unidadeProduto = '';

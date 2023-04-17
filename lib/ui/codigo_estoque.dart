@@ -95,7 +95,7 @@ class _CodigoEstoqueState extends State<CodigoEstoque> {
                   ),
                 ],
               ),
-              estaVazio ? SizedBox() : ConsultaProdutoCard(produtoBuscado), 
+              estaVazio ? SizedBox() : ConsultaProdutoCard(), 
             ],
           ),
         ),

@@ -4,10 +4,10 @@ import 'package:verificacao_estoque_online/models/consulta_produtos_models.dart'
 import 'package:verificacao_estoque_online/ui/codigo_estoque.dart';
 
 class ConsultaProdutoCard extends StatelessWidget {
-  ConsultaProdutoCard(this.produtos);
+ // ConsultaProdutoCard();
 
   //List<ConsultaProdutosModels> produtos;
-List<ConsultaProdutosModels> produtos = [];
+//List<ConsultaProdutosModels> produtos = [];
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -92,7 +92,7 @@ List<ConsultaProdutosModels> produtos = [];
                     padding: EdgeInsets.all(8),  
                     alignment: Alignment.center,
                     child: Text(
-                      '',
+                      contents,
                       style: TextStyle(color: textDarkColor),
                       textAlign: TextAlign.center,
                     ),
