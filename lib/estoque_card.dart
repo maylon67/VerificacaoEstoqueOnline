@@ -32,9 +32,9 @@ class ConsultaProdutoCard extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Table(
                 columnWidths: const <int, TableColumnWidth>{
-                  0: FixedColumnWidth(110),
-                  1: FixedColumnWidth(90),
-                  2: FixedColumnWidth(90),
+                  0: FixedColumnWidth(120),
+                  1: FixedColumnWidth(120),
+                  2: FixedColumnWidth(120),
                 },
                   children: [
                     createHeadLine(
