@@ -12,7 +12,6 @@ class WsProdutos {
           query:
               "/data/deposito/getProduto/" + codigoDigitadoProduto.toString(),
           duration: Duration(seconds: 10));
-
       if (response.containsKey('error') ||
           response.containsKey('connection') ||
           response.isEmpty) return produtosVazios;

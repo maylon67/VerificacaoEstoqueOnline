@@ -41,8 +41,8 @@ class WsController with WsProdutos{
         headers: {
           "Content-Type": "application/json",
           "Accept": "application/json",
-        },
-      )
+              },
+)
           .timeout(duration)
           .then(
             (response) {

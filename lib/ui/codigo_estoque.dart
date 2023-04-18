@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:verificacao_estoque_online/app_config.dart';
 import 'package:verificacao_estoque_online/estoque_card.dart';
 import 'package:verificacao_estoque_online/models/consulta_produtos_models.dart';
@@ -31,7 +32,7 @@ class _CodigoEstoqueState extends State<CodigoEstoque> {
         title: Text(
           'Seja bem vindo usuário',
           softWrap: false,
-          style: TextStyle(
+          style: GoogleFonts.yanoneKaffeesatz(
               fontSize: 21, color: Color.fromARGB(255, 255, 255, 255)),
         ),
         backgroundColor: markPrimaryColor,
