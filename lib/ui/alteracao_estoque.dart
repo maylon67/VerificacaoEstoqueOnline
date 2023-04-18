@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:verificacao_estoque_online/app_config.dart';
 
 class AlteraEstoquePage extends StatefulWidget {
@@ -16,7 +15,7 @@ class _AlteraEstoquePageState extends State<AlteraEstoquePage> {
       appBar: AppBar(
         title: Text(
           'Alterar Estoque',
-          style: GoogleFonts.yanoneKaffeesatz(color: Colors.white),
+          style: TextStyle(color: Colors.white),
         ),
         backgroundColor: markPrimaryColor,
         centerTitle: true,
@@ -33,17 +32,17 @@ class _AlteraEstoquePageState extends State<AlteraEstoquePage> {
             children: [
               Row(
                 children: [
-                  Text('jngjbngjbg',textAlign: TextAlign.center,),
+                  Text('ITEM 1',textAlign: TextAlign.center,),
                 ],
               ),
               Row(
                 children: [
-                  Text('jngjbngjbg',textAlign: TextAlign.center,),
+                  Text('ITEM 2',textAlign: TextAlign.center,),
                 ],
               ),
               Row(
                 children: [
-                  Text('jngjbngjbg',textAlign: TextAlign.center,),
+                  Text('ITEM 3',textAlign: TextAlign.center,),
                 ],
               ),
             ],
