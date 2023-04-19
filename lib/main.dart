@@ -6,10 +6,10 @@ import 'package:verificacao_estoque_online/ui/codigo_estoque.dart';
 
 void main() {
   runApp(   
-    
+
     MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: LoginPage(),
+    home: AlteraEstoquePage(),
   ));
 }
 

@@ -32,23 +32,24 @@ class _AlteraEstoquePageState extends State<AlteraEstoquePage> {
             children: [
               Row(
                 children: [
-                  Text('ITEM 1',textAlign: TextAlign.center,),
+                  Text('ITEM 1',textAlign: TextAlign.center),
                 ],
               ),
               Row(
                 children: [
-                  Text('ITEM 2',textAlign: TextAlign.center,),
+                  Text('ITEM 2',textAlign: TextAlign.center),
                 ],
               ),
               Row(
                 children: [
-                  Text('ITEM 3',textAlign: TextAlign.center,),
+                  Text('ITEM 3',textAlign: TextAlign.center),
                 ],
               ),
             ],
           ),
         ),
-      )),
+      ),
+      ),
     );
   }
 }
