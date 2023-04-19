@@ -84,7 +84,7 @@ class _CodigoEstoqueState extends State<CodigoEstoque> {
                       child: PrimaryButton(
                           text: 'Buscar',
                           onPressed: () async {
-                                loadData();
+                              await loadData();
                             estaVazio = false;
                             setState(() {
                             });

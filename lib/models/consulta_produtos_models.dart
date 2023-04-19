@@ -8,7 +8,7 @@ class ConsultaProdutosModels {
   String unidadeProduto = '';
   int codigoEstoqueProduto = 0;
   String nomeEstoqueProduto = '';
-  num quantidadeEstoqueProduto = 0.0;
+  String quantidadeEstoqueProduto = '';
   //construtor do modelo
 ConsultaProdutosModels(
       this.codigoEstoqueProduto,
@@ -20,7 +20,7 @@ ConsultaProdutosModels(
  );
   ConsultaProdutosModels.fromJson(Map<String,dynamic> json){
   codigoEstoqueProduto = int.parse(json['codigo_estoque'].toString());
-  quantidadeEstoqueProduto = json['quantidade_estoque'];
+  quantidadeEstoqueProduto = f.format((json['quantidade_estoque']));
   idProduto = int.parse(json['id_produto'].toString());
   unidadeProduto = json['unidade_produto'];
   nomeEstoqueProduto = json['nome_estoque'];

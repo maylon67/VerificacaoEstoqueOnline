@@ -9,7 +9,7 @@ void main() {
 
     MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: AlteraEstoquePage(),
+    home: LoginPage(),
   ));
 }
 
