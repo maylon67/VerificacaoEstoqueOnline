@@ -45,8 +45,9 @@ class _ConsultaProdutoCardState extends State<ConsultaProdutoCard> {
                     createHeadLine(
                         "Código\nEstoque;Nome\nEstoque;Quantidade\nEstoque;"),
                     for (ConsultaProdutosModels i in produtoBuscado)
-                      createTable(
-                          "${i.codigoEstoqueProduto};${i.nomeEstoqueProduto};${i.quantidadeEstoqueProduto};"),
+                      createTable(i
+                         // "${i.codigoEstoqueProduto};${i.nomeEstoqueProduto};${i.quantidadeEstoqueProduto};"
+                          ),
                   ],
               ),
             ),
@@ -85,15 +86,18 @@ class _ConsultaProdutoCardState extends State<ConsultaProdutoCard> {
     );
   }
 
-  createTable(String listcontents) {
+  createTable(ConsultaProdutosModels i) {
     return TableRow(
-        children: listcontents
+        children:  "${i.codigoEstoqueProduto};${i.nomeEstoqueProduto};${i.quantidadeEstoqueProduto};"
             .split(';')
             .map(
               (contents) => Column(
                 children: [
                   GestureDetector(
-                    onTap: () {Navigator.push(context, MaterialPageRoute(builder: (_) => AlteraEstoquePage()));},
+                    onTap: () {
+                      Navigator.push(
+                        context, 
+                        MaterialPageRoute(builder: (_) => AlteraEstoquePage()));},
                     child: Container(
                       height: 55,
                       padding: EdgeInsets.all(8),  

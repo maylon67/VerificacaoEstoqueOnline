@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:verificacao_estoque_online/app_config.dart';
+import 'package:verificacao_estoque_online/ui/codigo_estoque.dart';
 
 class AlteraEstoquePage extends StatefulWidget {
   const AlteraEstoquePage({Key? key}) : super(key: key);
@@ -31,18 +32,21 @@ class _AlteraEstoquePageState extends State<AlteraEstoquePage> {
           child: Column(
             children: [
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('ITEM 1',textAlign: TextAlign.center),
+                  Text(produtoBuscado.length.toString(),textAlign: TextAlign.center),
                 ],
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('ITEM 2',textAlign: TextAlign.center),
+                  Text(produtoBuscado.length.toString(),textAlign: TextAlign.center),
                 ],
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('ITEM 3',textAlign: TextAlign.center),
+                  Text(produtoBuscado.length.toString(),textAlign: TextAlign.center),
                 ],
               ),
             ],
