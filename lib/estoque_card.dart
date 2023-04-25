@@ -96,8 +96,7 @@ class _ConsultaProdutoCardState extends State<ConsultaProdutoCard> {
                   GestureDetector(
                     onTap: () {
                       Navigator.push(
-                        context, 
-                        MaterialPageRoute(builder: (_) => AlteraEstoquePage()));},
+                        context, MaterialPageRoute(builder: (_) => AlteraEstoquePage(i)));},
                     child: Container(
                       height: 55,
                       padding: EdgeInsets.all(8),  

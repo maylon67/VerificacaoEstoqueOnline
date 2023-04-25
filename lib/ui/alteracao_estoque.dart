@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:verificacao_estoque_online/app_config.dart';
+import 'package:verificacao_estoque_online/models/consulta_produtos_models.dart';
 import 'package:verificacao_estoque_online/ui/codigo_estoque.dart';
 
 class AlteraEstoquePage extends StatefulWidget {
-  const AlteraEstoquePage({Key? key}) : super(key: key);
+ // const AlteraEstoquePage({Key? key}) : super(key: key);
+AlteraEstoquePage(this.i);
+late ConsultaProdutosModels i;
 
   @override
   State<AlteraEstoquePage> createState() => _AlteraEstoquePageState();
@@ -34,19 +37,19 @@ class _AlteraEstoquePageState extends State<AlteraEstoquePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(produtoBuscado.length.toString(),textAlign: TextAlign.center),
+                  Text(widget.i.codigoEstoqueProduto.toString(),textAlign: TextAlign.center),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(produtoBuscado.length.toString(),textAlign: TextAlign.center),
+                  Text(widget.i.nomeEstoqueProduto,textAlign: TextAlign.center),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(produtoBuscado.length.toString(),textAlign: TextAlign.center),
+                  Text(widget.i.quantidadeEstoqueProduto,textAlign: TextAlign.center),
                 ],
               ),
             ],
