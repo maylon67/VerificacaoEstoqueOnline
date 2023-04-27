@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:verificacao_estoque_online/app_config.dart';
-
-class PrimaryButton extends StatelessWidget {
+class BotaoCriado extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
-  final Color color;
-
-  const PrimaryButton({ required this.text, required this.onPressed, this.color = markPrimaryColor});
+  final Color cor;
+ const  BotaoCriado({required this.onPressed, required this.text,this.cor = markPrimaryColor});
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
+    return  ElevatedButton(
       onPressed: onPressed,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 12),
@@ -18,9 +16,9 @@ class PrimaryButton extends StatelessWidget {
       ),
       style: ElevatedButton.styleFrom(
           elevation: 4,
-          primary: color,
+          primary: cor,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-          textStyle: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)
+          textStyle: TextStyle(color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold)
       ),
     );
   }

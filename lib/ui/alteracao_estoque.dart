@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:verificacao_estoque_online/app_config.dart';
 import 'package:verificacao_estoque_online/models/consulta_produtos_models.dart';
+import 'package:verificacao_estoque_online/ui/_common/button_created.dart';
 import 'package:verificacao_estoque_online/ui/_common/common_button.dart';
 import 'package:verificacao_estoque_online/ui/codigo_estoque.dart';
 
@@ -172,15 +173,15 @@ class _AlteraEstoquePageState extends State<AlteraEstoquePage> {
                         )),
                   ],
                 ), 
-                
+
                 Padding(padding: EdgeInsets.symmetric(vertical: 15)),
                 Container(
                   height: 55,
                   width: 240,
-                  child: PrimaryButton(
+                  child: BotaoCriado(
                       onPressed: () {},
                       text: 'Atualizar',
-                      color: markPrimaryColor,
+                      cor: markPrimaryColor,
                       ),
                 ),
               ],
