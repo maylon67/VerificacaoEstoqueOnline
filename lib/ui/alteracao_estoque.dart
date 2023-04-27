@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:verificacao_estoque_online/app_config.dart';
 import 'package:verificacao_estoque_online/models/consulta_produtos_models.dart';
 import 'package:verificacao_estoque_online/ui/_common/button_created.dart';
@@ -18,6 +19,27 @@ class AlteraEstoquePage extends StatefulWidget {
 
 class _AlteraEstoquePageState extends State<AlteraEstoquePage> {
   TextEditingController _controller = TextEditingController();
+
+  int _stockCount = 0;
+
+  void _updateStockCount(double value) {
+    setState(() {
+      _stockCount = value as int;
+    });
+  }
+
+   void _incrementStockCount() {
+    setState(() {
+      _stockCount++;
+    });
+  }
+
+  void _decrementStockCount() {
+    setState(() {
+      _stockCount--;
+    });
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -129,43 +151,55 @@ class _AlteraEstoquePageState extends State<AlteraEstoquePage> {
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 45),
                   child: Container(
-                    height: 65,
-                    width: 350,
-                    child: TextField(
-                      controller: _controller,
-                      decoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                          color: markPrimaryColor,
-                        )),
-                        labelText: 'Quantidade nova',
-                        labelStyle: TextStyle(
-                            color: markPrimaryColor,
-                            fontSize: 23,
-                            // backgroundColor: markPrimaryColor,
-                            fontWeight: FontWeight.bold),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
+                    height: 100,
+                    width: 200,
+                    child: Center(
+                      child: Text(
+                        NumberFormat.simpleCurrency(
+                          locale: 'en- US', 
+                          decimalDigits: 4).format(_stockCount).toString(),
+                        semanticsLabel: '$_stockCount',
+                        style: Theme.of(context).textTheme.headline4,
                       ),
-                    ),
+                    )
                   ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          _decrementStockCount();
+                        },
                         child: Icon(
                           Icons.remove_circle,
                           color: markPrimaryColor,
                           size: 80,
                         )),
+                         SizedBox(width: 20),
+                SizedBox(
+                  width: 100,
+                  child: TextField(
+                    keyboardType: TextInputType.numberWithOptions(decimal: true),
+                    textAlign: TextAlign.center,
+                    decoration: InputDecoration(
+                      hintText: 'Estoque',
+                      border: OutlineInputBorder(),
+                      isDense: true,
+                    ),
+                    onChanged: (value) {
+                      double stockCount = double.tryParse(value) ?? 0;
+                      _updateStockCount(stockCount);
+                    },
+                  ),
+                ),
                     SizedBox(
                       width: 55,
                     ),
                     TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          _incrementStockCount();
+                        },
                         child: Icon(
                           Icons.add_circle,
                           color: markPrimaryColor,
