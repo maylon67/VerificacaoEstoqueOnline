@@ -20,7 +20,7 @@ class PrimaryButton extends StatelessWidget {
           elevation: 4,
           primary: color,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-          textStyle: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w500)
+          textStyle: TextStyle(color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold)
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:verificacao_estoque_online/app_config.dart';
 import 'package:verificacao_estoque_online/models/consulta_produtos_models.dart';
+import 'package:verificacao_estoque_online/ui/_common/common_button.dart';
 import 'package:verificacao_estoque_online/ui/codigo_estoque.dart';
 
 class AlteraEstoquePage extends StatefulWidget {
@@ -15,6 +16,7 @@ class AlteraEstoquePage extends StatefulWidget {
 }
 
 class _AlteraEstoquePageState extends State<AlteraEstoquePage> {
+  TextEditingController _controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -123,21 +125,45 @@ class _AlteraEstoquePageState extends State<AlteraEstoquePage> {
                     ],
                   ),
                 ),
-                Padding(padding: EdgeInsets.symmetric(vertical: 95)),
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 60),
-                      child: TextButton(
-                          onPressed: () {},
-                          child: Icon(
-                            Icons.remove_circle,
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 45),
+                  child: Container(
+                    height: 65,
+                    width: 350,
+                    child: TextField(
+                      controller: _controller,
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                          color: markPrimaryColor,
+                        )),
+                        labelText: 'Quantidade nova',
+                        labelStyle: TextStyle(
                             color: markPrimaryColor,
-                            size: 80,
-                          )),
+                            fontSize: 23,
+                            // backgroundColor: markPrimaryColor,
+                            fontWeight: FontWeight.bold),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
                     ),
-                        SizedBox(width: 10,),
-                        TextButton(
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                        onPressed: () {},
+                        child: Icon(
+                          Icons.remove_circle,
+                          color: markPrimaryColor,
+                          size: 80,
+                        )),
+                    SizedBox(
+                      width: 55,
+                    ),
+                    TextButton(
                         onPressed: () {},
                         child: Icon(
                           Icons.add_circle,
@@ -145,6 +171,17 @@ class _AlteraEstoquePageState extends State<AlteraEstoquePage> {
                           size: 80,
                         )),
                   ],
+                ), 
+                
+                Padding(padding: EdgeInsets.symmetric(vertical: 15)),
+                Container(
+                  height: 55,
+                  width: 240,
+                  child: PrimaryButton(
+                      onPressed: () {},
+                      text: 'Atualizar',
+                      color: markPrimaryColor,
+                      ),
                 ),
               ],
             ),
