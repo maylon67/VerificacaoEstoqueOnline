@@ -21,6 +21,7 @@ class _AlteraEstoquePageState extends State<AlteraEstoquePage> {
   TextEditingController _controller = TextEditingController();
 
   int _stockCount = 0;
+  int estoqueAtualizado = 0;
 
   void _updateStockCount(double value) {
     setState(() {
@@ -37,6 +38,12 @@ class _AlteraEstoquePageState extends State<AlteraEstoquePage> {
   void _decrementStockCount() {
     setState(() {
       _stockCount--;
+    });
+  }
+  
+  void _AtualizarEstoque(){
+    setState(() {
+      estoqueAtualizado = int.parse(_controller.text);
     });
   }
   
@@ -148,22 +155,7 @@ class _AlteraEstoquePageState extends State<AlteraEstoquePage> {
                     ],
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 45),
-                  child: Container(
-                    height: 100,
-                    width: 200,
-                    child: Center(
-                      child: Text(
-                        NumberFormat.simpleCurrency(
-                          locale: 'en- US', 
-                          decimalDigits: 4).format(_stockCount).toString(),
-                        semanticsLabel: '$_stockCount',
-                        style: Theme.of(context).textTheme.headline4,
-                      ),
-                    )
-                  ),
-                ),
+                Padding(padding: EdgeInsets.symmetric(vertical: 50),),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -180,6 +172,7 @@ class _AlteraEstoquePageState extends State<AlteraEstoquePage> {
                 SizedBox(
                   width: 100,
                   child: TextField(
+                    controller: TextEditingController(text: '$_stockCount'),
                     keyboardType: TextInputType.numberWithOptions(decimal: true),
                     textAlign: TextAlign.center,
                     decoration: InputDecoration(
@@ -188,13 +181,13 @@ class _AlteraEstoquePageState extends State<AlteraEstoquePage> {
                       isDense: true,
                     ),
                     onChanged: (value) {
-                      double stockCount = double.tryParse(value) ?? 0;
-                      _updateStockCount(stockCount);
+                       _stockCount = int.tryParse(value) ?? 0;
+                      _updateStockCount(_stockCount.toDouble());
                     },
                   ),
                 ),
                     SizedBox(
-                      width: 55,
+                      width: 20,
                     ),
                     TextButton(
                         onPressed: () {
@@ -206,14 +199,17 @@ class _AlteraEstoquePageState extends State<AlteraEstoquePage> {
                           size: 80,
                         )),
                   ],
-                ), 
-
+                ),
                 Padding(padding: EdgeInsets.symmetric(vertical: 15)),
                 Container(
                   height: 55,
                   width: 240,
                   child: BotaoCriado(
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          _AtualizarEstoque();
+                        });
+                      },
                       text: 'Atualizar',
                       cor: markPrimaryColor,
                       ),
