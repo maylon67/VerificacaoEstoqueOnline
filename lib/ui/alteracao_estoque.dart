@@ -6,6 +6,8 @@ import 'package:verificacao_estoque_online/ui/_common/button_created.dart';
 import 'package:verificacao_estoque_online/ui/_common/common_button.dart';
 import 'package:verificacao_estoque_online/ui/codigo_estoque.dart';
 
+  int _stockCount = 0;
+  int estoqueAtualizado = 0;
 class AlteraEstoquePage extends StatefulWidget {
   // const AlteraEstoquePage({Key? key}) : super(key: key);
   AlteraEstoquePage(this.i);
@@ -20,14 +22,18 @@ class AlteraEstoquePage extends StatefulWidget {
 class _AlteraEstoquePageState extends State<AlteraEstoquePage> {
   TextEditingController _controller = TextEditingController();
 
-  int _stockCount = 0;
-  int estoqueAtualizado = 0;
-
-  void _updateStockCount(double value) {
-    setState(() {
-      _stockCount = value as int;
-    });
+  @override
+  void initState() {
+    super.initState();
+    // _controller.text = _stockCount as TextEditingController,
+    _controller.text = widget.i.quantidadeEstoqueProduto;
   }
+
+ // void _updateStockCount(double value) {
+ //   setState(() {
+    // _controller = _stockCount as TextEditingController;
+   // });
+ // }
 
    void _incrementStockCount() {
     setState(() {
@@ -43,7 +49,8 @@ class _AlteraEstoquePageState extends State<AlteraEstoquePage> {
   
   void _AtualizarEstoque(){
     setState(() {
-      estoqueAtualizado = int.parse(_controller.text);
+    // widget.i.quantidadeEstoqueProduto = _stockCount.toString();
+    // estoqueAtualizado = _stockCount;
     });
   }
   
@@ -134,7 +141,7 @@ class _AlteraEstoquePageState extends State<AlteraEstoquePage> {
                               children: [
                                 Text(
                                   "Qtd. Anterior: " +
-                                      widget.i.quantidadeEstoqueProduto,
+                                      (widget.i.quantidadeEstoqueProduto),
                                   style: TextStyle(
                                       fontSize: 20, color: markPrimaryColor),
                                 ),
@@ -172,7 +179,7 @@ class _AlteraEstoquePageState extends State<AlteraEstoquePage> {
                 SizedBox(
                   width: 100,
                   child: TextField(
-                    controller: TextEditingController(text: '$_stockCount'),
+                    controller: _controller,
                     keyboardType: TextInputType.numberWithOptions(decimal: true),
                     textAlign: TextAlign.center,
                     decoration: InputDecoration(
@@ -181,8 +188,7 @@ class _AlteraEstoquePageState extends State<AlteraEstoquePage> {
                       isDense: true,
                     ),
                     onChanged: (value) {
-                       _stockCount = int.tryParse(value) ?? 0;
-                      _updateStockCount(_stockCount.toDouble());
+                       _controller.value;
                     },
                   ),
                 ),
@@ -207,7 +213,7 @@ class _AlteraEstoquePageState extends State<AlteraEstoquePage> {
                   child: BotaoCriado(
                       onPressed: () {
                         setState(() {
-                          _AtualizarEstoque();
+                         // _AtualizarEstoque();
                         });
                       },
                       text: 'Atualizar',
