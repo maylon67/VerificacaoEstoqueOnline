@@ -6,8 +6,10 @@ import 'package:verificacao_estoque_online/ui/_common/button_created.dart';
 import 'package:verificacao_estoque_online/ui/_common/common_button.dart';
 import 'package:verificacao_estoque_online/ui/codigo_estoque.dart';
 
-  int _stockCount = 0;
-  int estoqueAtualizado = 0;
+int _stockCount = 0;
+int estoqueAtualizado = 0;
+
+// int _numberController = 0;
 class AlteraEstoquePage extends StatefulWidget {
   // const AlteraEstoquePage({Key? key}) : super(key: key);
   AlteraEstoquePage(this.i);
@@ -26,34 +28,34 @@ class _AlteraEstoquePageState extends State<AlteraEstoquePage> {
   void initState() {
     super.initState();
     // _controller.text = _stockCount as TextEditingController,
-    _controller.text = widget.i.quantidadeEstoqueProduto;
+    _controller.text = widget.i.quantidadeEstoqueProduto.toString();
   }
 
- // void _updateStockCount(double value) {
- //   setState(() {
-    // _controller = _stockCount as TextEditingController;
-   // });
- // }
+  // void _updateStockCount(double value) {
+  //   setState(() {
+  // _controller = _stockCount as TextEditingController;
+  // });
+  // }
 
-   void _incrementStockCount() {
+  // void _incrementStockCount() {
+  //  setState(() {
+  //    _stockCount++;
+  //  });
+  // }
+
+  // void _decrementStockCount() {
+  //   setState(() {
+  //     _stockCount--;
+  //   });
+  // }
+
+  void _AtualizarEstoque() {
     setState(() {
-      _stockCount++;
+      // widget.i.quantidadeEstoqueProduto = _stockCount.toString();
+      // estoqueAtualizado = _stockCount;
     });
   }
 
-  void _decrementStockCount() {
-    setState(() {
-      _stockCount--;
-    });
-  }
-  
-  void _AtualizarEstoque(){
-    setState(() {
-    // widget.i.quantidadeEstoqueProduto = _stockCount.toString();
-    // estoqueAtualizado = _stockCount;
-    });
-  }
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -162,42 +164,80 @@ class _AlteraEstoquePageState extends State<AlteraEstoquePage> {
                     ],
                   ),
                 ),
-                Padding(padding: EdgeInsets.symmetric(vertical: 50),),
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 50),
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextButton(
                         onPressed: () {
-                          _decrementStockCount();
+                          // _decrementStockCount();
+                          int quantidade = int.parse(_controller.text
+                              .replaceAll(',', '')
+                              .replaceAll('.', ''));
+                          quantidade--;
+                          _controller.text = quantidade.toString();
+                          setState(() {});
+
+                          // setState(() {
+                          // _stockCount = int.parse(_controller.text);
+                          // _controller.text = _stockCount.toString();
+                          // String text = _controller.text;
+                          // text = text.replaceAll(',', ''); // Remover vírgulas
+                          // text = text.replaceAll('.', ''); // Remover pontos
+                          // int number = int.parse(
+                          //     text); // Converter a string em um número inteiro
+                          // });
                         },
                         child: Icon(
                           Icons.remove_circle,
                           color: markPrimaryColor,
                           size: 80,
                         )),
-                         SizedBox(width: 20),
-                SizedBox(
-                  width: 100,
-                  child: TextField(
-                    controller: _controller,
-                    keyboardType: TextInputType.numberWithOptions(decimal: true),
-                    textAlign: TextAlign.center,
-                    decoration: InputDecoration(
-                      hintText: 'Estoque',
-                      border: OutlineInputBorder(),
-                      isDense: true,
+                    SizedBox(width: 20),
+                    SizedBox(
+                      width: 100,
+                      child: TextField(
+                        controller: _controller,
+                        keyboardType:
+                            TextInputType.numberWithOptions(decimal: true),
+                        textAlign: TextAlign.center,
+                        decoration: InputDecoration(
+                          hintText: 'Estoque',
+                          border: OutlineInputBorder(),
+                          isDense: true,
+                        ),
+                        onChanged: (value) {
+                          _controller.value;
+                        },
+                      ),
                     ),
-                    onChanged: (value) {
-                       _controller.value;
-                    },
-                  ),
-                ),
                     SizedBox(
                       width: 20,
                     ),
                     TextButton(
                         onPressed: () {
-                          _incrementStockCount();
+                          int quantidade = int.parse(_controller.text
+                              .replaceAll(',', '')
+                              .replaceAll('.', ''));
+                          quantidade++;
+                          _controller.text = quantidade.toString();
+                          setState(() {});
+                          // _incrementStockCount();
+                          // int numeroQuantidade = int.parse(_controller.text);
+                          // numeroQuantidade++;
+                          // _controller.text = numeroQuantidade.toString();
+
+                          // setState(() {
+                          // _stockCount = int.parse(_controller.text);
+                          // _controller.text = _stockCount.toString();
+                          // String text = _controller.text;
+                          // text = text.replaceAll(',', ''); // Remover vírgulas
+                          // text = text.replaceAll('.', ''); // Remover pontos
+                          // int number = int.parse(
+                          //     text); // Converter a string em um número inteiro
+                          // });
                         },
                         child: Icon(
                           Icons.add_circle,
@@ -211,14 +251,14 @@ class _AlteraEstoquePageState extends State<AlteraEstoquePage> {
                   height: 55,
                   width: 240,
                   child: BotaoCriado(
-                      onPressed: () {
-                        setState(() {
-                         // _AtualizarEstoque();
-                        });
-                      },
-                      text: 'Atualizar',
-                      cor: markPrimaryColor,
-                      ),
+                    onPressed: () {
+                      setState(() {
+                        // _AtualizarEstoque();
+                      });
+                    },
+                    text: 'Atualizar',
+                    cor: markPrimaryColor,
+                  ),
                 ),
               ],
             ),
